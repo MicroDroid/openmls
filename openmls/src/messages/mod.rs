@@ -246,7 +246,7 @@ impl Commit {
     TlsSerialize,
     TlsSize,
 )]
-pub(crate) struct CommitIn {
+pub struct CommitIn {
     proposals: Vec<ProposalOrRefIn>,
     path: Option<UpdatePathIn>,
 }

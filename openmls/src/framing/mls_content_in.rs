@@ -109,7 +109,7 @@ impl From<AuthenticatedContentIn> for FramedContentIn {
     TlsSize,
 )]
 #[repr(u8)]
-pub(crate) enum FramedContentBodyIn {
+pub enum FramedContentBodyIn {
     #[tls_codec(discriminant = 1)]
     Application(VLBytes),
     #[tls_codec(discriminant = 2)]

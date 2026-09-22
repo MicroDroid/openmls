@@ -38,11 +38,21 @@ pub struct PublicMessageIn {
     pub(crate) membership_tag: Option<MembershipTag>,
 }
 
-#[cfg(any(test, feature = "test-utils"))]
 impl PublicMessageIn {
-    pub(crate) fn content(&self) -> &crate::framing::mls_content_in::FramedContentBodyIn {
+    /// Retrieve the additional authenticated data (AAD) from the [`PrivateMessageIn`].
+    ///
+    /// NOTE: This AAD is unverified.
+    pub fn aad(&self) -> &[u8] {
+        &self.content.authenticated_data.as_slice()
+    }
+
+    /// Returns the content of the message.
+    /// 
+    /// NOTE: This content is unverified.
+    pub fn content(&self) -> &crate::framing::mls_content_in::FramedContentBodyIn {
         &self.content.body
     }
+
 }
 
 #[cfg(test)]
