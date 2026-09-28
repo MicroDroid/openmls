@@ -29,7 +29,7 @@ use crate::{error::LibraryError, versions::ProtocolVersion};
     TlsDeserializeBytes,
     TlsSize,
 )]
-pub struct MembershipTag(pub(crate) Mac);
+pub struct MembershipTag(pub Mac);
 
 /// [`PublicMessage`] is a framing structure for MLS messages. It can contain
 /// Proposals, Commits and application messages.

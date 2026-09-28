@@ -286,8 +286,8 @@ pub(crate) struct DecryptPathParams<'a> {
     TlsSize,
 )]
 pub struct UpdatePathNode {
-    pub(super) public_key: EncryptionKey,
-    pub(super) encrypted_path_secrets: Vec<HpkeCiphertext>,
+    pub public_key: EncryptionKey,
+    pub encrypted_path_secrets: Vec<HpkeCiphertext>,
 }
 
 impl UpdatePathNode {
