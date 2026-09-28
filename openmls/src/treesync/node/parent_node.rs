@@ -254,7 +254,7 @@ impl UnmergedLeaves {
 }
 
 #[derive(Error, Debug)]
-pub(in crate::treesync) enum UnmergedLeavesError {
+pub enum UnmergedLeavesError {
     /// The list of leaves is not sorted.
     #[error("The list of leaves is not sorted.")]
     NotSorted,
