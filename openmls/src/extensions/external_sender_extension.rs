@@ -25,8 +25,8 @@ use crate::{ciphersuite::SignaturePublicKey, credentials::Credential};
     TlsSize,
 )]
 pub struct ExternalSender {
-    signature_key: SignaturePublicKey,
-    credential: Credential,
+    pub signature_key: SignaturePublicKey,
+    pub credential: Credential,
 }
 
 impl ExternalSender {

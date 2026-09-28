@@ -6,8 +6,8 @@ use super::*;
 #[derive(
     Debug, Clone, Serialize, Deserialize, TlsDeserialize, TlsDeserializeBytes, TlsSerialize, TlsSize,
 )]
-pub(crate) struct Mac {
-    pub(crate) mac_value: VLBytes,
+pub struct Mac {
+    pub mac_value: VLBytes,
 }
 
 impl PartialEq for Mac {

@@ -37,12 +37,12 @@ use super::*;
     Debug, PartialEq, Eq, Clone, TlsSerialize, TlsSize, TlsDeserialize, TlsDeserializeBytes,
 )]
 pub struct PrivateMessageIn {
-    group_id: GroupId,
-    epoch: GroupEpoch,
-    content_type: ContentType,
-    authenticated_data: VLBytes,
-    encrypted_sender_data: VLBytes,
-    ciphertext: VLBytes,
+    pub group_id: GroupId,
+    pub epoch: GroupEpoch,
+    pub content_type: ContentType,
+    pub authenticated_data: VLBytes,
+    pub encrypted_sender_data: VLBytes,
+    pub ciphertext: VLBytes,
 }
 
 /// Return value of [`PrivateMessageIn::to_verifiable_content`].

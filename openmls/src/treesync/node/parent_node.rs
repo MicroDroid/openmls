@@ -219,7 +219,7 @@ impl ParentNode {
     }
 
     /// Get the parent hash value of this node.
-    pub(crate) fn parent_hash(&self) -> &[u8] {
+    pub fn parent_hash(&self) -> &[u8] {
         self.parent_hash.as_slice()
     }
 }

@@ -159,7 +159,7 @@ impl ProposalIn {
     TlsSize,
 )]
 pub struct AddProposalIn {
-    key_package: KeyPackageIn,
+    pub key_package: KeyPackageIn,
 }
 
 impl AddProposalIn {
@@ -207,7 +207,7 @@ impl AddProposalIn {
     TlsSize,
 )]
 pub struct UpdateProposalIn {
-    leaf_node: LeafNodeIn,
+    pub leaf_node: LeafNodeIn,
 }
 
 impl UpdateProposalIn {
