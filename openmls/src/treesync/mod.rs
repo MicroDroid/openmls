@@ -36,7 +36,6 @@ use self::{
         leaf_node::{
             Capabilities, NewLeafNodeParams, TreeInfoTbs, TreePosition, VerifiableLeafNode,
         },
-        NodeIn,
     },
     treesync_node::{TreeSyncLeafNode, TreeSyncNode, TreeSyncParentNode},
 };
