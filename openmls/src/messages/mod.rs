@@ -73,9 +73,9 @@ use self::{proposals::*, proposals_in::ProposalOrRefIn};
     serde::Deserialize,
 )]
 pub struct Welcome {
-    cipher_suite: Ciphersuite,
-    secrets: Vec<EncryptedGroupSecrets>,
-    encrypted_group_info: VLBytes,
+    pub cipher_suite: Ciphersuite,
+    pub secrets: Vec<EncryptedGroupSecrets>,
+    pub encrypted_group_info: VLBytes,
 }
 
 impl Welcome {
@@ -113,7 +113,7 @@ impl Welcome {
     }
 
     /// Returns a reference to the encrypted group info.
-    pub(crate) fn encrypted_group_info(&self) -> &[u8] {
+    pub fn encrypted_group_info(&self) -> &[u8] {
         self.encrypted_group_info.as_slice()
     }
 
@@ -172,9 +172,9 @@ impl Welcome {
 )]
 pub struct EncryptedGroupSecrets {
     /// Key package reference of the new member
-    new_member: KeyPackageRef,
+    pub new_member: KeyPackageRef,
     /// Ciphertext of the encrypted group secret
-    encrypted_group_secrets: HpkeCiphertext,
+    pub encrypted_group_secrets: HpkeCiphertext,
 }
 
 impl EncryptedGroupSecrets {
@@ -192,7 +192,7 @@ impl EncryptedGroupSecrets {
     }
 
     /// Returns a reference to the encrypted group secrets' encrypted group secrets.
-    pub(crate) fn encrypted_group_secrets(&self) -> &HpkeCiphertext {
+    pub fn encrypted_group_secrets(&self) -> &HpkeCiphertext {
         &self.encrypted_group_secrets
     }
 }
@@ -247,15 +247,15 @@ impl Commit {
     TlsSize,
 )]
 pub struct CommitIn {
-    proposals: Vec<ProposalOrRefIn>,
-    path: Option<UpdatePathIn>,
+    pub proposals: Vec<ProposalOrRefIn>,
+    pub path: Option<UpdatePathIn>,
 }
 
 impl CommitIn {
     /// Returns the proposals covered by this commit. The commit has not been
     /// validated at this point.
     #[cfg(feature = "extensions-draft")]
-    pub(crate) fn unverified_proposals(&self) -> &[ProposalOrRefIn] {
+    pub fn unverified_proposals(&self) -> &[ProposalOrRefIn] {
         &self.proposals
     }
 
@@ -370,7 +370,7 @@ impl From<Commit> for CommitIn {
     TlsSerialize,
     TlsSize,
 )]
-pub struct ConfirmationTag(pub(crate) Mac);
+pub struct ConfirmationTag(pub Mac);
 
 /// PathSecret
 ///

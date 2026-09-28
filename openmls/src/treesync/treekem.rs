@@ -292,7 +292,7 @@ pub struct UpdatePathNode {
 
 impl UpdatePathNode {
     /// Return the `encrypted_path_secrets`.
-    fn encrypted_path_secrets(&self, ciphertext_index: usize) -> Option<&HpkeCiphertext> {
+    pub fn encrypted_path_secrets(&self, ciphertext_index: usize) -> Option<&HpkeCiphertext> {
         self.encrypted_path_secrets.get(ciphertext_index)
     }
 
@@ -301,7 +301,7 @@ impl UpdatePathNode {
         self.public_key.key()
     }
 
-    pub(crate) fn encryption_key(&self) -> &EncryptionKey {
+    pub fn encryption_key(&self) -> &EncryptionKey {
         &self.public_key
     }
 
@@ -418,8 +418,8 @@ impl UpdatePath {
     TlsSize,
 )]
 pub struct UpdatePathIn {
-    leaf_node: LeafNodeIn,
-    nodes: Vec<UpdatePathNode>,
+    pub leaf_node: LeafNodeIn,
+    pub nodes: Vec<UpdatePathNode>,
 }
 
 impl UpdatePathIn {

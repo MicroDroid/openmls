@@ -461,7 +461,7 @@ impl From<crate::messages::proposals::ProposalOrRef> for ProposalOrRefIn {
     TlsSize,
 )]
 pub struct GroupContextExtensionProposalIn {
-    extensions_tbv: Extensions<AnyObject>,
+    pub extensions_tbv: Extensions<AnyObject>,
 }
 
 impl GroupContextExtensionProposalIn {

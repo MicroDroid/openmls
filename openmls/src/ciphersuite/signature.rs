@@ -18,7 +18,7 @@ use super::{LABEL_PREFIX, *};
     TlsSize,
 )]
 pub struct Signature {
-    value: VLBytes,
+    pub value: VLBytes,
 }
 
 impl From<Vec<u8>> for Signature {
@@ -67,7 +67,7 @@ impl SignContent {
     TlsSize,
 )]
 pub struct SignaturePublicKey {
-    pub(in crate::ciphersuite) value: VLBytes,
+    pub value: VLBytes,
 }
 
 impl From<Vec<u8>> for SignaturePublicKey {

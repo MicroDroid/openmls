@@ -179,8 +179,8 @@ impl LeafNodeParametersBuilder {
 /// ```
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, TlsSerialize, TlsSize)]
 pub struct LeafNode {
-    payload: LeafNodePayload,
-    signature: Signature,
+    pub payload: LeafNodePayload,
+    pub signature: Signature,
 }
 
 impl LeafNode {
@@ -656,13 +656,13 @@ impl LeafNode {
     TlsDeserializeBytes,
     TlsSize,
 )]
-struct LeafNodePayload {
-    encryption_key: EncryptionKey,
-    signature_key: SignaturePublicKey,
-    credential: Credential,
-    capabilities: Capabilities,
-    leaf_node_source: LeafNodeSource,
-    extensions: Extensions<LeafNode>,
+pub struct LeafNodePayload {
+    pub encryption_key: EncryptionKey,
+    pub signature_key: SignaturePublicKey,
+    pub credential: Credential,
+    pub capabilities: Capabilities,
+    pub leaf_node_source: LeafNodeSource,
+    pub extensions: Extensions<LeafNode>,
 }
 
 /// The source of the `LeafNode`.
@@ -823,8 +823,8 @@ const LEAF_NODE_SIGNATURE_LABEL: &str = "LeafNodeTBS";
     TlsSize,
 )]
 pub struct LeafNodeIn {
-    payload: LeafNodePayload,
-    signature: Signature,
+    pub payload: LeafNodePayload,
+    pub signature: Signature,
 }
 
 impl LeafNodeIn {

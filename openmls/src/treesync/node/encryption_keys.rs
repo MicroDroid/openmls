@@ -31,7 +31,7 @@ use crate::{
     Hash,
 )]
 pub struct EncryptionKey {
-    key: HpkePublicKey,
+    pub key: HpkePublicKey,
 }
 
 impl EncryptionKey {

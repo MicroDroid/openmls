@@ -30,8 +30,8 @@ const SIGNATURE_GROUP_INFO_LABEL: &str = "GroupInfoTBS";
 /// [`VerifiableGroupInfo`], which can then be turned into a group info as described above.
 #[derive(Debug, PartialEq, Clone, TlsDeserialize, TlsDeserializeBytes, TlsSerialize, TlsSize)]
 pub struct VerifiableGroupInfo {
-    payload: GroupInfoTBS,
-    signature: Signature,
+    pub payload: GroupInfoTBS,
+    pub signature: Signature,
 }
 
 /// Error related to group info.
@@ -172,8 +172,8 @@ impl From<VerifiableGroupInfo> for GroupInfo {
 #[derive(Debug, PartialEq, Clone, TlsSize, SerdeSerialize, SerdeDeserialize)]
 #[cfg_attr(feature = "test-utils", derive(TlsDeserialize))]
 pub struct GroupInfo {
-    payload: GroupInfoTBS,
-    signature: Signature,
+    pub payload: GroupInfoTBS,
+    pub signature: Signature,
     #[serde(skip)]
     #[tls_codec(skip)]
     serialized_payload: Option<Vec<u8>>,
@@ -209,13 +209,13 @@ impl GroupInfo {
     }
 
     /// Returns the confirmation tag.
-    pub(crate) fn confirmation_tag(&self) -> &ConfirmationTag {
+    pub fn confirmation_tag(&self) -> &ConfirmationTag {
         &self.payload.confirmation_tag
     }
 
     /// Returns the GroupInfo with a type that signals it is unverified.
     /// A form of downcasting to an equivalent type with a weaker type invariant.
-    pub(crate) fn into_verifiable_group_info(self) -> VerifiableGroupInfo {
+    pub fn into_verifiable_group_info(self) -> VerifiableGroupInfo {
         VerifiableGroupInfo {
             payload: GroupInfoTBS {
                 group_context: self.payload.group_context,
@@ -251,11 +251,11 @@ impl GroupInfo {
     SerdeSerialize,
     SerdeDeserialize,
 )]
-pub(crate) struct GroupInfoTBS {
-    group_context: GroupContext,
-    extensions: Extensions<GroupInfo>,
-    confirmation_tag: ConfirmationTag,
-    signer: LeafNodeIndex,
+pub struct GroupInfoTBS {
+    pub group_context: GroupContext,
+    pub extensions: Extensions<GroupInfo>,
+    pub confirmation_tag: ConfirmationTag,
+    pub signer: LeafNodeIndex,
 }
 
 impl GroupInfoTBS {

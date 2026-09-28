@@ -35,9 +35,9 @@ use crate::{
     TlsSize,
 )]
 pub struct ParentNode {
-    pub(super) encryption_key: EncryptionKey,
-    pub(super) parent_hash: VLBytes,
-    pub(super) unmerged_leaves: UnmergedLeaves,
+    pub encryption_key: EncryptionKey,
+    pub parent_hash: VLBytes,
+    pub unmerged_leaves: UnmergedLeaves,
 }
 
 impl From<EncryptionKey> for ParentNode {
@@ -174,17 +174,17 @@ impl ParentNode {
     }
 
     /// Return a reference to the `public_key` of this node.
-    pub(crate) fn public_key(&self) -> &HpkePublicKey {
+    pub fn public_key(&self) -> &HpkePublicKey {
         self.encryption_key.key()
     }
 
     /// Return a reference to the `public_key` of this node.
-    pub(crate) fn encryption_key(&self) -> &EncryptionKey {
+    pub fn encryption_key(&self) -> &EncryptionKey {
         &self.encryption_key
     }
 
     /// Get the list of unmerged leaves.
-    pub(crate) fn unmerged_leaves(&self) -> &[LeafNodeIndex] {
+    pub fn unmerged_leaves(&self) -> &[LeafNodeIndex] {
         self.unmerged_leaves.list()
     }
 
@@ -226,7 +226,7 @@ impl ParentNode {
 
 /// A helper struct that maintains a sorted list of unmerged leaves.
 #[derive(Debug, Eq, PartialEq, Clone, Serialize, Deserialize, TlsSize, TlsSerialize)]
-pub(in crate::treesync) struct UnmergedLeaves {
+pub struct UnmergedLeaves {
     list: Vec<LeafNodeIndex>,
 }
 

@@ -231,8 +231,8 @@ pub struct Certificate {
     TlsDeserializeBytes,
 )]
 pub struct Credential {
-    credential_type: CredentialType,
-    serialized_credential_content: VLBytes,
+    pub credential_type: CredentialType,
+    pub serialized_credential_content: VLBytes,
 }
 
 impl Credential {

@@ -45,9 +45,9 @@ use crate::{
 ///} FramedContentAuthData;
 /// ```
 #[derive(PartialEq, Debug, Clone, Serialize, Deserialize)]
-pub(crate) struct FramedContentAuthData {
-    pub(super) signature: Signature,
-    pub(super) confirmation_tag: Option<ConfirmationTag>,
+pub struct FramedContentAuthData {
+    pub signature: Signature,
+    pub confirmation_tag: Option<ConfirmationTag>,
 }
 
 impl FramedContentAuthData {

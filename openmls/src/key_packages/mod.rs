@@ -150,12 +150,12 @@ pub use vc::{VcKeyPackageBatch, VcKeyPackageBatchBuilder};
 /// } KeyPackageTBS;
 /// ```
 #[derive(Debug, Clone, PartialEq, TlsSize, TlsSerialize, Serialize, Deserialize)]
-struct KeyPackageTbs {
-    protocol_version: ProtocolVersion,
-    ciphersuite: Ciphersuite,
-    init_key: InitKey,
-    leaf_node: LeafNode,
-    extensions: Extensions<KeyPackage>,
+pub struct KeyPackageTbs {
+    pub protocol_version: ProtocolVersion,
+    pub ciphersuite: Ciphersuite,
+    pub init_key: InitKey,
+    pub leaf_node: LeafNode,
+    pub extensions: Extensions<KeyPackage>,
 }
 
 impl Signable for KeyPackageTbs {
@@ -179,8 +179,8 @@ impl From<KeyPackage> for KeyPackageTbs {
 /// The key package struct.
 #[derive(Debug, Clone, Serialize, Deserialize, TlsSize)]
 pub struct KeyPackage {
-    payload: KeyPackageTbs,
-    signature: Signature,
+    pub payload: KeyPackageTbs,
+    pub signature: Signature,
     #[serde(skip)]
     #[tls_codec(skip)]
     serialized_payload: Option<Vec<u8>>,
@@ -250,7 +250,7 @@ pub(crate) struct KeyPackageCreationResult {
     TlsDeserializeBytes,
 )]
 pub struct InitKey {
-    key: HpkePublicKey,
+    pub key: HpkePublicKey,
 }
 
 impl InitKey {

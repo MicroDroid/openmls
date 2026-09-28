@@ -47,12 +47,12 @@ use tls_codec::{
     TlsDeserializeBytes,
     TlsSize,
 )]
-pub(crate) struct FramedContentIn {
-    pub(super) group_id: GroupId,
-    pub(super) epoch: GroupEpoch,
-    pub(super) sender: Sender,
-    pub(super) authenticated_data: VLBytes,
-    pub(super) body: FramedContentBodyIn,
+pub struct FramedContentIn {
+    pub group_id: GroupId,
+    pub epoch: GroupEpoch,
+    pub sender: Sender,
+    pub authenticated_data: VLBytes,
+    pub body: FramedContentBodyIn,
 }
 
 impl FramedContentIn {

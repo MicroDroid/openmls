@@ -417,7 +417,7 @@ impl Proposal {
 /// ```
 #[derive(Debug, PartialEq, Clone, Serialize, Deserialize, TlsSerialize, TlsSize)]
 pub struct AddProposal {
-    pub(crate) key_package: KeyPackage,
+    pub key_package: KeyPackage,
 }
 
 impl AddProposal {
@@ -447,7 +447,7 @@ impl From<KeyPackage> for AddProposal {
 /// ```
 #[derive(Debug, PartialEq, Eq, Clone, Serialize, Deserialize, TlsSerialize, TlsSize)]
 pub struct UpdateProposal {
-    pub(crate) leaf_node: LeafNode,
+    pub leaf_node: LeafNode,
 }
 
 impl UpdateProposal {
@@ -564,10 +564,10 @@ impl PreSharedKeyProposal {
     TlsSize,
 )]
 pub struct ReInitProposal {
-    pub(crate) group_id: GroupId,
-    pub(crate) version: ProtocolVersion,
-    pub(crate) ciphersuite: Ciphersuite,
-    pub(crate) extensions: Extensions<GroupContext>,
+    pub group_id: GroupId,
+    pub version: ProtocolVersion,
+    pub ciphersuite: Ciphersuite,
+    pub extensions: Extensions<GroupContext>,
 }
 
 /// ExternalInit Proposal.
@@ -599,7 +599,7 @@ pub struct ExternalInitProposal {
 
 impl ExternalInitProposal {
     /// Returns the `kem_output` contained in the proposal.
-    pub(crate) fn kem_output(&self) -> &[u8] {
+    pub fn kem_output(&self) -> &[u8] {
         self.kem_output.as_slice()
     }
 }

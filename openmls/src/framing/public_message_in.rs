@@ -33,9 +33,9 @@ use tls_codec::{Deserialize as TlsDeserializeTrait, Serialize as TlsSerializeTra
 /// ```
 #[derive(Debug, PartialEq, Clone, Serialize, Deserialize)]
 pub struct PublicMessageIn {
-    pub(crate) content: FramedContentIn,
-    pub(crate) auth: FramedContentAuthData,
-    pub(crate) membership_tag: Option<MembershipTag>,
+    pub content: FramedContentIn,
+    pub auth: FramedContentAuthData,
+    pub membership_tag: Option<MembershipTag>,
 }
 
 impl PublicMessageIn {
@@ -249,7 +249,7 @@ impl PublicMessageIn {
     }
 
     /// Get the [`MembershipTag`].
-    pub(crate) fn membership_tag(&self) -> Option<&MembershipTag> {
+    pub fn membership_tag(&self) -> Option<&MembershipTag> {
         self.membership_tag.as_ref()
     }
 

@@ -67,8 +67,8 @@ use errors::*;
 
 // Crate
 pub(crate) mod diff;
-pub(crate) mod node;
-pub(crate) mod treekem;
+pub mod node;
+pub mod treekem;
 pub(crate) mod treesync_node;
 
 use node::encryption_keys::EncryptionKeyPair;
@@ -87,6 +87,7 @@ pub use node::{
     },
     parent_node::ParentNode,
     Node,
+    NodeIn,
 };
 
 // Tests
