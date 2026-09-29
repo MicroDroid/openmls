@@ -36,8 +36,8 @@ use crate::{
 /// which is commonly returned by functions of the [`MlsGroup`] API.
 #[derive(PartialEq, Debug, Clone, TlsSize, TlsSerialize)]
 pub struct MlsMessageIn {
-    pub(crate) version: ProtocolVersion,
-    pub(crate) body: MlsMessageBodyIn,
+    pub version: ProtocolVersion,
+    pub body: MlsMessageBodyIn,
 }
 
 /// MLSMessage (Body)

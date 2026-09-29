@@ -87,12 +87,12 @@ impl VerifiedStruct for KeyPackage {}
     Serialize,
     Deserialize,
 )]
-struct KeyPackageTbsIn {
-    protocol_version: ProtocolVersion,
-    ciphersuite: Ciphersuite,
-    init_key: InitKey,
-    leaf_node: LeafNodeIn,
-    extensions: Extensions<AnyObject>,
+pub struct KeyPackageTbsIn {
+    pub protocol_version: ProtocolVersion,
+    pub ciphersuite: Ciphersuite,
+    pub init_key: InitKey,
+    pub leaf_node: LeafNodeIn,
+    pub extensions: Extensions<AnyObject>,
 }
 
 /// The key package struct.
