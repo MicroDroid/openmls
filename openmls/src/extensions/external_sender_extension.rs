@@ -68,7 +68,7 @@ pub type ExternalSendersExtension = Vec<ExternalSender>;
     TlsDeserializeBytes,
     TlsSize,
 )]
-pub struct SenderExtensionIndex(u32);
+pub struct SenderExtensionIndex(pub u32);
 
 impl SenderExtensionIndex {
     /// Creates a new `SenderExtensionIndex` instance.

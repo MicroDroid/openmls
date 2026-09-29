@@ -54,7 +54,7 @@ const PROPOSAL_REF_LABEL: &[u8; 26] = b"MLS 1.0 Proposal Reference";
     TlsSize,
 )]
 pub struct HashReference {
-    value: VLBytes,
+    pub value: VLBytes,
 }
 
 /// A reference to a key package.

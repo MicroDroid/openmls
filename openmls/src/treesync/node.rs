@@ -10,7 +10,7 @@ use super::LeafNode;
 
 mod codec;
 pub(crate) mod encryption_keys;
-pub(crate) mod leaf_node;
+pub mod leaf_node;
 pub(crate) mod parent_node;
 
 /// Container enum for leaf and parent nodes.

@@ -108,8 +108,8 @@ struct KeyPackageTbsIn {
     TlsSize,
 )]
 pub struct KeyPackageIn {
-    payload: KeyPackageTbsIn,
-    signature: Signature,
+    pub payload: KeyPackageTbsIn,
+    pub signature: Signature,
 }
 
 impl KeyPackageIn {
