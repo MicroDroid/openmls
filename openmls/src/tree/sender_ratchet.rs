@@ -280,6 +280,9 @@ impl DecryptionRatchet {
     ) -> Result<RatchetKeyMaterial, SecretTreeError> {
         log::debug!("secret_for_decryption");
         let head_generation = self.ratchet_head.generation();
+        log::debug!("head_generation: {}", head_generation);
+        log::debug!("generation: {}", generation);
+        log::debug!("maximum_forward_distance: {}", configuration.maximum_forward_distance());
         // If generation is too distant in the future
         if head_generation < u32::MAX - configuration.maximum_forward_distance()
             && generation > head_generation + configuration.maximum_forward_distance()
